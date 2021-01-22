@@ -1,0 +1,42 @@
+{
+  "title": "create user",
+  "type": "object",
+  "properties": {
+    "body": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 1,
+          "maxLength": 254
+        },
+        "password": {
+          "type": "string",
+          "minLength": 6
+        },
+        "confirmPassword": {
+          "const": {
+            "$data": "1/password"
+          },
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surname": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "email",
+        "password",
+        "confirmPassword",
+        "name",
+        "surname"
+      ]
+    }
+  }
+}
